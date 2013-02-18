@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Team Gen</string>	
+	<string name="activity_teams">Teams</string>
+	<string name="menu_more">More</string>
+	<string name="menu_exit">Exit</string>	
+	<string name="dialog_more">Version 1.01
+								\n
+								\n- Type a player name
+								\n- Choose the number of teams
+								\n- Press the button! ;)								
+								\n
+								\n Thank you very much for installing the app! :)
+								\n
+								\n More info @ www.tarlic.com</string>
+	<string name="dialog_exit">Are you sure you want to exit?</string>	
+	<string name="playerNameHint">type a player name</string>	
+	<string name="add_text">Add</string>	
+	<string name="make_teams_text">Make teams</string>
+	<string name="delete_text">Do you want to delete the player?</string>
+	<string name="yes_text">Yes</string>			  
+	<string name="no_text">No</string>
+	<string name="header_tabletitle"> </string>
+	<string name="vs_text">VS.</string>	
+</resources>

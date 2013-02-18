@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/tableLayout1" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:shrinkColumns="*"
+	android:stretchColumns="*">
+	
+	<TableRow android:id="@+id/tableRow0">
+		<TextView android:id="@+id/textView0" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textStyle="bold"
+			android:typeface="serif" android:textSize="18dp" android:gravity="center"
+			android:layout_span="6" android:text="@string/header_tabletitle"></TextView>
+	</TableRow>
+	
+	<TableRow android:layout_height="wrap_content" android:id="@+id/tableRow1"
+		android:layout_width="fill_parent">				
+		<EditText android:id="@+id/EditTextPlayerName"
+			android:layout_width="0dp" android:layout_height="wrap_content"
+			android:maxLength="20" android:singleLine="true"
+			android:hint="@string/playerNameHint"
+			android:layout_weight="1"/>
+		<Button android:id="@+id/ButtonAddPlayer" android:text="@string/add_text" 
+			android:gravity="center" android:onClick="buttonAddClick"></Button>		
+	</TableRow>
+	
+	<TableRow android:layout_height="wrap_content" android:id="@+id/tableRow2"
+		android:layout_width="fill_parent">
+            
+    <ListView android:id="@+id/listNumberOfTeams"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:layout_weight="1"
+               android:drawSelectorOnTop="false" />
+              
+	</TableRow>
+	
+	<View   android:id="@+id/firstDivider"
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="#808080" />
+
+	<TableRow android:id="@+id/tableRow1" android:layout_height="fill_parent"
+		android:layout_gravity="center" android:layout_width="wrap_content">
+		<Button android:id="@+id/ButtonAddPlayer" android:text="@string/make_teams_text"
+			android:layout_width="0.0dip" android:layout_height="fill_parent"
+			android:layout_weight="1.0" android:onClick="buttonMakeTeamsClick"></Button>
+	</TableRow>
+
+	<View   android:id="@+id/firstDivider"
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="#808080" />
+		
+	<TableRow android:layout_height="wrap_content" android:id="@+id/tableRow2"
+		android:layout_width="fill_parent">
+            
+    <ListView android:id="@+id/listPlayers"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:layout_weight="1"
+               android:drawSelectorOnTop="false" />
+              
+	</TableRow>
+		
+</TableLayout>
