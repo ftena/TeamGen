@@ -1,5 +1,5 @@
 # TeamGen
-Android application.
+A team generator for Android.
 
 Google Play:
 
