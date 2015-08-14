@@ -1,9 +1,9 @@
 package com.tarlic.TeamGen;
 
-public class Player {
+class Player {
 	public String firstTeam;
 	public String secondTeam;
-	public String region;
+	private String region;
 
 	public Player() {
 		// TODO Auto-generated constructor stub

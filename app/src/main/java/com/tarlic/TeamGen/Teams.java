@@ -28,7 +28,7 @@ public class Teams extends Activity {
 		ArrayList<HashMap<String, String>> arrayPlayers = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("arrayPlayers");		
 		Vector<String> solutionArray = new Vector<String>();
 		Integer numberOfTeams = (Integer)getIntent().getSerializableExtra("numberOfTeams");
-	    int playersOnATeam = 0; 
+	    int playersOnATeam;
 	    String firstTeam = new String();
 	    String secondTeam = new String();
 	    Boolean firstTeamMade = false;
@@ -97,7 +97,7 @@ public class Teams extends Activity {
 		
 		// Create a customized ArrayAdapter
 		PlayerArrayAdapter adapter = new PlayerArrayAdapter(
-				getApplicationContext(), R.layout.teams_row_view, playerList);
+				getApplicationContext(), playerList);
 		
 		// Get reference to ListView holder
 		ListView lv = (ListView) this.findViewById(R.id.listTeams);
@@ -106,4 +106,4 @@ public class Teams extends Activity {
 		lv.setAdapter(adapter);
 	}
 	
-};
+}

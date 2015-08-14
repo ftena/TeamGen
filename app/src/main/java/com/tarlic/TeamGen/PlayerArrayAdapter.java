@@ -8,13 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class PlayerArrayAdapter extends ArrayAdapter<Player> {
-	private TextView firstTeam;
-	private TextView secondTeam;
+class PlayerArrayAdapter extends ArrayAdapter<Player> {
 
-	public PlayerArrayAdapter(Context context, int textViewResourceId,
-			List<Player> objects) {
-		super(context, textViewResourceId, objects);
+	public PlayerArrayAdapter(Context context,
+							  List<Player> objects) {
+		super(context, R.layout.teams_row_view, objects);
 	
 	}
 
@@ -32,8 +30,8 @@ public class PlayerArrayAdapter extends ArrayAdapter<Player> {
 		// Get item
 		Player player = getItem(position);
 		//countryIcon = (ImageView) row.findViewById(R.id.country_icon);
-		firstTeam = (TextView) row.findViewById(R.id.firstTeam);
-		secondTeam = (TextView) row.findViewById(R.id.secondTeam);
+		TextView firstTeam = (TextView) row.findViewById(R.id.firstTeam);
+		TextView secondTeam = (TextView) row.findViewById(R.id.secondTeam);
 
 		firstTeam.setText(player.firstTeam);		
 		secondTeam.setText(player.secondTeam);

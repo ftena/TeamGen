@@ -34,17 +34,17 @@ public class TeamGen extends FragmentActivity
 	private ListView playersList;
 	
 	// Dialog identifiers
-	static final int DIALOG_NUMBER_OF_TEAMS_ID = 0;	
+	private static final int DIALOG_NUMBER_OF_TEAMS_ID = 0;
 
-	final CharSequence[] number_of_teams = { "2", "4", "8", "12", "16" };
+	private final CharSequence[] number_of_teams = { "2", "4", "8", "12", "16" };
 
-	final ArrayList<HashMap<String, String>> arrayNumberOfTeams = new ArrayList<HashMap<String, String>>();
+	private final ArrayList<HashMap<String, String>> arrayNumberOfTeams = new ArrayList<HashMap<String, String>>();
 
-	final ArrayList<HashMap<String, String>> arrayPlayers = new ArrayList<HashMap<String, String>>();
+	private final ArrayList<HashMap<String, String>> arrayPlayers = new ArrayList<HashMap<String, String>>();
 	
-	Integer playerCounter = 0;
+	private Integer playerCounter = 0;
 	
-	Integer numberOfTeams;
+	private Integer numberOfTeams;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -144,7 +144,7 @@ public class TeamGen extends FragmentActivity
 	};
 
 	protected Dialog onCreateDialog(int id) {
-		AlertDialog alert = null;
+		AlertDialog alert;
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 		// do the work to define the dialog
@@ -180,7 +180,7 @@ public class TeamGen extends FragmentActivity
 	}
 
 	
-	 public void showPlayersListNoticeDialog(Bundle dataBundle) {
+	 private void showPlayersListNoticeDialog(Bundle dataBundle) {
 	        // Create an instance of the dialog fragment and show it
 	        DialogFragment dialog = new PlayersListDialogFragment();
 	        dialog.setArguments(dataBundle);
@@ -391,4 +391,4 @@ public class TeamGen extends FragmentActivity
 		alert.show();
 	}
 
-};
+}
