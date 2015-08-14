@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginRight="16sp"
+        android:layout_marginLeft="16sp">
+    <ListView android:id="@+id/listTeams"
+            android:layout_width="fill_parent" android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="1dp"
+            android:cacheColorHint="#00000000">
+    </ListView>
+</LinearLayout>
+
+

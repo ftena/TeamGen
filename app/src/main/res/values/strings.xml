@@ -4,10 +4,10 @@
 	<string name="activity_teams">Teams</string>
 	<string name="menu_more">More</string>
 	<string name="menu_exit">Exit</string>	
-	<string name="dialog_more">Version 1.01
+	<string name="dialog_more">Team Gen
 								\n
-								\n- Type a player name
-								\n- Choose the number of teams
+								\n- Type the player names.
+								\n- Choose the number of teams.
 								\n- Press the button! ;)								
 								\n
 								\n Thank you very much for installing the app! :)
