@@ -7,7 +7,7 @@
 
 	<TextView
 		android:id="@+id/firstTeam"
-		android:textSize="14sp"
+		android:textSize="18sp"
 		android:text="First Team"		
 		android:layout_weight="0.5"
 		android:layout_gravity="center"
@@ -18,7 +18,7 @@
 	
 		<TextView
 		android:id="@+id/vs"
-		android:textSize="18sp"
+		android:textSize="12sp"
 		android:textStyle="bold"
 		android:text="@string/vs_text"		
 		android:layout_weight="0.5"
@@ -29,7 +29,7 @@
 	
 	<TextView
 		android:id="@+id/secondTeam"
-		android:textSize="14sp"
+		android:textSize="18sp"
 		android:text="Second Team"
 		android:layout_gravity="center"		
 		android:layout_width="wrap_content"
