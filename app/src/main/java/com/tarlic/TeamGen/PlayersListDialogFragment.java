@@ -7,9 +7,7 @@ import android.content.DialogInterface;
 
 /*
  * The dialog extends DialogFragment, and since we want backward compatibility,
- * we�ll import it from the v4 support library. (To add the support library to
- * an Eclipse project, right-click on the project and choose
- * Android Tools | Add Support Library...).
+ * we need to import it from the v4 support library.
  */
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;

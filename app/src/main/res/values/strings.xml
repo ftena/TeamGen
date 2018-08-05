@@ -4,8 +4,7 @@
 	<string name="activity_teams">Teams</string>
 	<string name="menu_more">More</string>
 	<string name="menu_exit">Exit</string>	
-	<string name="dialog_more">Team Gen
-								\n
+	<string name="dialog_more">
 								\n- Type the player names.
 								\n- Choose the number of teams.
 								\n- Press the button! ;)								

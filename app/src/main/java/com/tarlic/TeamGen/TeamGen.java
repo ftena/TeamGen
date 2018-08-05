@@ -139,6 +139,7 @@ public class TeamGen extends FragmentActivity
 		public void onItemClick(AdapterView<?> parent, View v, int position,
 				long id) {
 			// do something when the option "Number of Teams" is clicked
+			// TODO: fix
 			showDialog(DIALOG_NUMBER_OF_TEAMS_ID);
 		}
 	};
@@ -325,34 +326,21 @@ public class TeamGen extends FragmentActivity
 	}
 
 	private void showMore() {
+		LayoutInflater inflater = this.getLayoutInflater();
+		View dialogView = inflater.inflate(R.layout.dialog_more, null);
 
-		AlertDialog.Builder builder;
-		AlertDialog alertDialog;
-
-		// The next line makes the application crashes
-		// Context mContext = getApplicationContext();
-		LayoutInflater inflater = (LayoutInflater) this
-				.getSystemService(LAYOUT_INFLATER_SERVICE);
-		View layout = inflater.inflate(R.layout.dialog_more,
-				(ViewGroup) findViewById(R.id.dialog_more_layout_root));
-
-		TextView text = (TextView) layout.findViewById(R.id.TextMoreDialog);
-		text.setText(R.string.dialog_more);
-		ImageView image = (ImageView) layout.findViewById(R.id.ImageMoreDialog);
-		image.setImageResource(R.drawable.ic_launcher);
-
-		builder = new AlertDialog.Builder(this);
-		builder.setView(layout).setCancelable(false).setPositiveButton("Ok",
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.app_name);
+		builder.setView(dialogView);
+		builder.setCancelable(false).setPositiveButton("Ok",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
 					}
 				});
 
-		alertDialog = builder.create();
-
+		AlertDialog alertDialog = builder.create();
 		alertDialog.show();
-
 	}
 
 	private void showExit() {
