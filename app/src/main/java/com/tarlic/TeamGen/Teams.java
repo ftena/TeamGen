@@ -1,20 +1,19 @@
 package com.tarlic.TeamGen;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Vector;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
+
 public class Teams extends Activity {
 	
-	private List<Player> playerList= new ArrayList<Player>();
+	private List<Player> playerList= new ArrayList<>();
 	
 	/** Called when the activity is first created. */
 	@SuppressWarnings("unchecked")
@@ -26,21 +25,15 @@ public class Teams extends Activity {
 		setContentView(R.layout.main_teams_view);		
 
 		ArrayList<HashMap<String, String>> arrayPlayers = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("arrayPlayers");		
-		Vector<String> solutionArray = new Vector<String>();
+		Vector<String> solutionArray = new Vector<>();
 		Integer numberOfTeams = (Integer)getIntent().getSerializableExtra("numberOfTeams");
 	    int playersOnATeam;
-	    String firstTeam = new String();
-	    String secondTeam = new String();
-	    Boolean firstTeamMade = false;
-		
-		ListIterator<HashMap<String, String>> it = arrayPlayers.listIterator();
-				
-		while(it.hasNext()) {
-						
-			HashMap<String, String> temp = it.next();
-			
+	    StringBuilder firstTeam = new StringBuilder();
+	    StringBuilder secondTeam = new StringBuilder();
+	    boolean firstTeamMade = false;
+
+		for (HashMap<String, String> temp : arrayPlayers) {
 			solutionArray.add(temp.get("value"));
-				
 		}
 		
 		playersOnATeam = solutionArray.size() / numberOfTeams;
@@ -56,20 +49,20 @@ public class Teams extends Activity {
 	    			
 	    			if (! firstTeamMade)
 	    			
-	    				firstTeam = firstTeam + solutionArray.remove(0);
+	    				firstTeam.append(solutionArray.remove(0));
 	    			
 	    			else
 	    				
-	    				secondTeam = secondTeam + solutionArray.remove(0);
+	    				secondTeam.append(solutionArray.remove(0));
 	    			
 	    			//final String countryName = temp.get("field");
 	    			
 	    			if (k != playersOnATeam -1)
 	    				//System.out.print(", ");
 	    				if (! firstTeamMade)
-	    					firstTeam = firstTeam + ", ";
+	    					firstTeam.append(", ");
 	    				else
-	    					secondTeam = secondTeam + ", ";
+	    					secondTeam.append(", ");
 	    				
 	    		}
 	    		
@@ -78,15 +71,15 @@ public class Teams extends Activity {
 	    			firstTeamMade = true;
 	    		}
 	    		else {
-	    			Player player = new Player(firstTeam, secondTeam, "");
+	    			Player player = new Player(firstTeam.toString(), secondTeam.toString(), "");
     				
 	    			// Add to list
 	    			playerList.add(player);
 	    			
 	    			// clean the strings
 	    			
-	    			firstTeam = new String();
-	    			secondTeam = new String();
+	    			firstTeam = new StringBuilder();
+	    			secondTeam = new StringBuilder();
 	    			
 	    			// the first team will be made again from starting
 	    			

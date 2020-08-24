@@ -3,6 +3,7 @@ package com.tarlic.TeamGen;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 
 /*
@@ -10,6 +11,7 @@ import android.content.DialogInterface;
  * we need to import it from the v4 support library.
  */
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 public class PlayersListDialogFragment extends DialogFragment {
@@ -27,10 +29,10 @@ public class PlayersListDialogFragment extends DialogFragment {
         
     // Use this instance of the interface to deliver action events
     private NoticeDialogListener mListener;
-	
+
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         // Verify that the host activity implements the callback interface
         try {
@@ -43,6 +45,7 @@ public class PlayersListDialogFragment extends DialogFragment {
         }
     }
     
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Build the dialog and set up the button click handlers

@@ -1,8 +1,5 @@
 package com.tarlic.TeamGen;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.ListIterator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -15,17 +12,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.ListIterator;
 
 // We need to extend FragmentActivity instead of the normal Activity. 
 public class TeamGen extends FragmentActivity 
@@ -38,9 +36,9 @@ public class TeamGen extends FragmentActivity
 
 	private final CharSequence[] number_of_teams = { "2", "4", "8", "12", "16" };
 
-	private final ArrayList<HashMap<String, String>> arrayNumberOfTeams = new ArrayList<HashMap<String, String>>();
+	private final ArrayList<HashMap<String, String>> arrayNumberOfTeams = new ArrayList<>();
 
-	private final ArrayList<HashMap<String, String>> arrayPlayers = new ArrayList<HashMap<String, String>>();
+	private final ArrayList<HashMap<String, String>> arrayPlayers = new ArrayList<>();
 	
 	private Integer playerCounter = 0;
 	
@@ -67,7 +65,7 @@ public class TeamGen extends FragmentActivity
 		// Initialize the number of teams list
 		ListView numberOfTeamsList = (ListView) findViewById(R.id.listNumberOfTeams);
 
-		HashMap<String, String> temp = new HashMap<String, String>();
+		HashMap<String, String> temp = new HashMap<>();
 		temp.put("field", "Number of Teams");
 		temp.put("value", "0");
 		arrayNumberOfTeams.add(temp);
@@ -119,7 +117,7 @@ public class TeamGen extends FragmentActivity
 
 		arrayNumberOfTeams.clear();
 
-		HashMap<String, String> temp = new HashMap<String, String>();
+		HashMap<String, String> temp = new HashMap<>();
 		temp.put("field", "Number of Teams");
 		temp.put("value", selection);
 		arrayNumberOfTeams.add(temp);
@@ -149,10 +147,7 @@ public class TeamGen extends FragmentActivity
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 		// do the work to define the dialog
-		
-		switch (id) {
-		case DIALOG_NUMBER_OF_TEAMS_ID:
-
+		if (id == DIALOG_NUMBER_OF_TEAMS_ID) {
 			builder.setTitle("Pick the number of teams");
 			builder.setSingleChoiceItems(number_of_teams, -1,
 					new DialogInterface.OnClickListener() {
@@ -162,9 +157,9 @@ public class TeamGen extends FragmentActivity
 									Toast.LENGTH_SHORT).show();
 
 							updateNumberOfTeamsList((String) number_of_teams[which]);
-							
+
 							// save the number of teams
-							
+
 							numberOfTeams = Integer.parseInt(number_of_teams[which].toString());
 
 							dialog.dismiss();
@@ -172,9 +167,7 @@ public class TeamGen extends FragmentActivity
 					});
 
 			alert = builder.create();
-
-			break;		
-		default:
+		} else {
 			alert = null;
 		}
 		return alert;
@@ -196,9 +189,10 @@ public class TeamGen extends FragmentActivity
 	    	Bundle dataBundle = dialog.getArguments();
 	    	
 	    	// Get the id passed previously
-	    	Integer id = dataBundle.getInt("Id");
-	    		    	
-	    	// Remove the selected row			
+			assert dataBundle != null;
+			int id = dataBundle.getInt("Id");
+
+			// Remove the selected row
 			arrayPlayers.remove((int)id);
 
 			ListAdapter adapter = new SimpleAdapter(this, // Context
@@ -222,15 +216,8 @@ public class TeamGen extends FragmentActivity
 						"Nice",
 						Toast.LENGTH_SHORT).show();
 	    }
-	
-	public void disableEditTextResults(int idEditTextResults) {
-		EditText editTextResults = (EditText) findViewById(idEditTextResults);
-
-		editTextResults.setKeyListener(null);
-	}
 
 	/* Process the Add button */
-	
 	public void buttonAddClick(View view) {
 		
 		EditText editTextPlayerName = (EditText) findViewById(R.id.EditTextPlayerName);
@@ -245,7 +232,7 @@ public class TeamGen extends FragmentActivity
 			
 			playerCounter++;
 
-			HashMap<String, String> temp = new HashMap<String, String>();
+			HashMap<String, String> temp = new HashMap<>();
 			temp.put("field", "Player " + playerCounter.toString());
 			temp.put("value", editTextPlayerName.getText().toString());
 			arrayPlayers.add(temp);
@@ -260,7 +247,7 @@ public class TeamGen extends FragmentActivity
 			playersList.setAdapter(adapter);
 		}
 		
-		editTextPlayerName.setText(new String());		
+		editTextPlayerName.setText("");
 	}
 	
 	/* Process the Make Team button */
@@ -271,7 +258,7 @@ public class TeamGen extends FragmentActivity
 		
 		HashMap<String, String> temp = it.next();
 		
-		final Integer numberOfTeams = Integer.valueOf(temp.get("value"));
+		final int numberOfTeams = Integer.parseInt(temp.get("value"));
 		
 		// Check if it is possible to make teams
 		
