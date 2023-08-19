@@ -10,7 +10,7 @@
 			For each Activity launched in the app, it is necessary <activity> ... </activity>
 		-->
 
-		<activity android:name=".TeamGen" android:label="@string/app_name">
+		<activity android:name=".TeamGen" android:label="@string/app_name" android:exported="true">
 		
 				<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

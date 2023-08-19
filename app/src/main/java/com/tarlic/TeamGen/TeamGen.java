@@ -5,8 +5,8 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.ListIterator;
 
 // We need to extend FragmentActivity instead of the normal Activity. 
-public class TeamGen extends FragmentActivity 
+public class TeamGen extends FragmentActivity
 					implements PlayersListDialogFragment.NoticeDialogListener {
 
 	private ListView playersList;
@@ -220,7 +220,7 @@ public class TeamGen extends FragmentActivity
 	/* Process the Add button */
 	public void buttonAddClick(View view) {
 		
-		EditText editTextPlayerName = (EditText) findViewById(R.id.EditTextPlayerName);
+		EditText editTextPlayerName = (EditText) view.findViewById(R.id.EditTextPlayerName);
 						
 		if (editTextPlayerName.length() == 0)
 		{
@@ -300,16 +300,15 @@ public class TeamGen extends FragmentActivity
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
-		switch (item.getItemId()) {
-		case R.id.menu_more:
+		if (item.getItemId() == R.id.menu_more) {
 			showMore();
 			return true;
-		case R.id.menu_exit:
+		} else if (item.getItemId() == R.id.menu_exit) {
 			showExit();
 			return true;
-		default:
-			return super.onOptionsItemSelected(item);
 		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	private void showMore() {
