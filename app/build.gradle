@@ -7,6 +7,7 @@ android {
         applicationId "com.tarlic.TeamGen"
         minSdkVersion 16
         targetSdkVersion 33
+        compileSdk 33
     }
 
     buildTypes {
