@@ -220,9 +220,9 @@ public class TeamGen extends FragmentActivity
 	/* Process the Add button */
 	public void buttonAddClick(View view) {
 		
-		EditText editTextPlayerName = (EditText) view.findViewById(R.id.EditTextPlayerName);
+		EditText editTextPlayerName = (EditText) findViewById(R.id.EditTextPlayerName);
 						
-		if (editTextPlayerName.length() == 0)
+		if (editTextPlayerName.getText().length() == 0)
 		{
 			Toast.makeText(getApplicationContext(),
 					"Type a name",

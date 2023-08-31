@@ -2,26 +2,53 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/tableLayout1" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:shrinkColumns="*"
-	android:stretchColumns="*"
+	android:stretchColumns="0,1,2"
 	android:layout_marginRight="16sp"
 	android:layout_marginLeft="16sp">
 	
 	<TableRow android:id="@+id/tableRow0">
-		<TextView android:id="@+id/textView0" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:textStyle="bold"
-			android:typeface="serif" android:textSize="18sp" android:gravity="center"
-			android:layout_span="6" android:text="@string/header_tabletitle"/>
+		<TextView android:id="@+id/textView0"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:typeface="serif"
+			android:textSize="18sp"
+			android:gravity="center"
+			android:layout_span="12"
+			android:text="@string/header_tabletitle"/>
 	</TableRow>
-	
-	<TableRow android:layout_height="wrap_content" android:id="@+id/tableRow1"
-		android:layout_width="fill_parent">				
-		<EditText android:id="@+id/EditTextPlayerName"
-			android:layout_width="0dp" android:layout_height="wrap_content"
-			android:maxLength="20" android:singleLine="true"
+
+	<TableRow
+		android:id="@+id/tableRowPlayerName"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<EditText
+			android:id="@+id/EditTextPlayerName"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
 			android:hint="@string/playerNameHint"
-			android:layout_weight="1"/>
-		<Button android:id="@+id/ButtonAddPlayer" android:text="@string/add_text" 
-			android:gravity="center" android:onClick="buttonAddClick"/>
+			android:maxLength="20"
+			android:minHeight="48dp"
+			android:singleLine="true"
+			android:textSize="20sp" />
+	</TableRow>
+
+	<TableRow
+		android:id="@+id/tableRowAddPlayer"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center">
+
+		<Button
+			android:id="@+id/ButtonAddPlayer"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:onClick="buttonAddClick"
+			android:text="@string/add_text" />
+
 	</TableRow>
 	
 	<TableRow android:layout_height="wrap_content" android:id="@+id/tableRow2"
